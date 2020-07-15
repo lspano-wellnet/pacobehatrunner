@@ -1,0 +1,23 @@
+default:
+  extensions:
+    Vanare\BehatCucumberJsonFormatter\Extension:
+      outputDir: %paths.base%/artifacts
+    Behat\MinkExtension\ServiceContainer\MinkExtension:
+      base_url: ""
+      sessions:
+        browser_stack:
+          browser_stack:
+            username: "qasupport4"
+            access_key: "EKPbquBzpXZcfqMjyVYu"
+            capabilities: {"browser" :"Chrome", "browserVersion": "80", "os": "windows", "os_version": "10", "resolution": "1920x1080", "acceptSslCerts": true, "browserstack-debug": true, "project": "maxmara_automation", "build": "MAXMARA_AUTO_TESTS_LSPANO"}
+        local:
+          selenium2:
+            wd_host: 'http://phantomjs:4444/wd/hub'
+            capabilities: { "browser": "phantomjs", "version" : "xx.xx"}
+
+  suites:
+        TSF050:
+          paths: [ %paths.base%/features/features_intrend/TSF050-utils ]
+          contexts:
+            - IntrendTSF002Context:
+                - Italy_Intrend_UAT

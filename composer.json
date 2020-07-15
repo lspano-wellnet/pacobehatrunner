@@ -1,0 +1,19 @@
+{
+    "name": "paco/behatrunner",
+    "type": "project",
+    "authors": [
+        {
+            "name": "luca-spano",
+            "email": "luca.spano@wellnet.it"
+        }
+    ],
+    "require": {
+      "symfony/yaml": "^3.4",
+      "ext-json": "*"
+    },
+  "autoload": {
+    "classmap": [
+      "src/"
+    ]
+  }
+}
