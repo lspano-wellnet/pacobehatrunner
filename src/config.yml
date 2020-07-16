@@ -1,0 +1,5 @@
+browserstack:
+  username: "qasupport4"
+  access_key: "EKPbquBzpXZcfqMjyVYu"
+  build_name: "PAACO"
+  default_env: "UAT"
