@@ -17,7 +17,7 @@ default:
 
   suites:
         TSF050:
-          paths: [ %paths.base%/features/features_intrend/TSF050-utils ]
+          paths: [ %paths.base%/features/features_maxmara/TSF050-utils ]
           contexts:
-            - IntrendTSF002Context:
-                - Italy_Intrend_UAT
+            - MaxmaraTSF002Context:
+                - ArabEmirates_Maxmara_UAT

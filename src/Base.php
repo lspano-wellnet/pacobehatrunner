@@ -92,7 +92,7 @@ class Base {
 
     public function printBehatYml($brand, $country) {
         $featureBrandPath = $this->featureBrandPath($brand);
-//        $country = $this->getCountry();
+        $countryMapped = $this->getCountry($country);
         $i = "default:
   extensions:
     Vanare\BehatCucumberJsonFormatter\Extension:
@@ -115,7 +115,7 @@ class Base {
           paths: [ %paths.base%/features/features_" . $featureBrandPath[0] . "/TSF050-utils ]
           contexts:
             - " . $featureBrandPath[1] . "TSF002Context:
-                - Italy_" . $featureBrandPath[1] . "_UAT";
+                - " . $countryMapped ."_" . $featureBrandPath[1] . "_UAT";
         file_put_contents('behat.yml', $i);
     }
 
@@ -142,4 +142,8 @@ class Base {
         }
     }
 
+    public function getCountry($country) {
+        $yaml = Yaml::parse(file_get_contents('src/countries.yml'));
+        return $yaml['countries'][$country];
+    }
 }
