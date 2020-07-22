@@ -1,7 +1,24 @@
+echo '                                 '
+echo '      ___         ___           ___           ___           ___     '
+echo '     /  /\       /  /\         /  /\         /  /\         /  /\    '
+echo '    /  /::\     /  /::\       /  /::\       /  /:/        /  /::\   '
+echo '   /  /:/\:\   /  /:/\:\     /  /:/\:\     /  /:/        /  /:/\:\  '
+echo '  /  /:/~/:/  /  /:/~/::\   /  /:/~/::\   /  /:/  ___   /  /:/  \:\ '
+echo ' /__/:/ /:/  /__/:/ /:/\:\ /__/:/ /:/\:\ /__/:/  /  /\ /__/:/ \__\:\'
+echo ' \  \:\/:/   \  \:\/:/__\/ \  \:\/:/__\/ \  \:\ /  /:/ \  \:\ /  /:/'
+echo '  \  \::/     \  \::/       \  \::/       \  \:\  /:/   \  \:\  /:/ '
+echo '   \  \:\      \  \:\        \  \:\        \  \:\/:/     \  \:\/:/  '
+echo '    \  \:\      \  \:\        \  \:\        \  \::/       \  \::/   '
+echo '     \__\/       \__\/         \__\/         \__\/         \__\/    '
+echo '                                 '
 echo "please enter key [BrandCode-Country] to start test"
 echo "examples:"
-echo "dt-it   =>   Intrend Italy"
-echo "mm-gb   =>   MaxMara United Kingdom"
+echo '                                 '
+echo '+--------------------------------------+'
+echo "| it-dt   =>   Intrend Italy           |"
+echo "| gb-mm   =>   MaxMara United Kingdom  |"
+echo '+--------------------------------------+'
+echo '                                 '
 
 read selection
 

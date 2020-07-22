@@ -21,6 +21,7 @@ class Base {
             capabilities: {\"browser\" :\"Chrome\", \"browserVersion\": \"80\", \"os\": \"windows\", \"os_version\": \"10\", \"resolution\": \"1920x1080\", \"acceptSslCerts\": true, \"browserstack-debug\": true, \"project\": \"maxmara_automation\", \"build\": \"" . $this->getBrowserstackInfo('default_env') . "\"}
         local:
           selenium2:
+          
             wd_host: 'http://phantomjs:4444/wd/hub'
             capabilities: { \"browser\": \"phantomjs\", \"version\" : \"xx.xx\"}
 
