@@ -34,6 +34,42 @@ class Base {
         file_put_contents('../behat.yml', $i);
     }
 
+    public function printConfigFile($brand, $country) {
+        $today = $this->getCurrentDateItaly();
+        $featureBrandPath = $this->featureBrandPath($brand);
+        $countryMapped = $this->getCountry($country);
+        $i = "options:
+  project: \"PACO " . $today . "\"
+  acceptSslCerts: true
+  username: \"" . $this->getBrowserstackInfo('username') . "\"
+  accessKey: \"" . $this->getBrowserstackInfo('access_key') . "\"
+  dockerNetwork: \"tests_default\"
+  phantomjsUrl: \"http://phantomjs:4444/wd/hub\"
+  debug: true
+plans:
+  - description: \"" . $featureBrandPath[1] . " " . $countryMapped . " " . $today . "\"
+    basePath: \"/data/maxmara_dd_test/tests/\"
+    featuresFolder: \"features/features_" . $featureBrandPath[0] . "/\"
+    bootstrapFolder: \"features/bootstrap/\"
+    outputFolder: \"artifacts/runs/\"
+    testList: \"data/automatic_tests_list_" . $featureBrandPath[0] . "_PACO.csv\"
+    runnerType: \"host\"
+    buildId : \"\"
+    store: \"" . $countryMapped . "_" . $featureBrandPath[1] . "_" . $this->getBrowserstackInfo('default_env') . "\"
+    countryOutline: true
+    capabilities:
+      - type: \"desktop\"
+        os: \"Windows\"
+        osVersion: \"10\"
+        browser: \"Chrome\"
+        browserVersion: \"80.0\"
+        resolution: \"1920x1080\"
+        device: \"\"
+        extraCapabilities: \"{}\"
+        note: \"\"";
+        file_put_contents('../data/config.yml', $i);
+    }
+
     public function featureBrandPath($brand) {
         switch ($brand){
             case "mm":
@@ -65,5 +101,10 @@ class Base {
     private function getBrowserstackInfo($param){
         $yaml = Yaml::parse(file_get_contents('src/config.yml'));
         return $yaml['browserstack'][$param];
+    }
+
+    public function getCurrentDateItaly() {
+        date_default_timezone_set("Europe/Rome");
+        return strftime("%d/%m/%y");
     }
 }
