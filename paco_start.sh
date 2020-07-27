@@ -11,8 +11,8 @@ echo '   \  \:\      \  \:\        \  \:\        \  \:\/:/     \  \:\/:/  '
 echo '    \  \:\      \  \:\        \  \:\        \  \::/       \  \::/   '
 echo '     \__\/       \__\/         \__\/         \__\/         \__\/    '
 echo '                                 '
-echo "please enter key [BrandCode-Country] to start test"
-echo "examples:"
+echo "please enter key [Country-BrandCode] to start test"
+echo "Examples:"
 echo '                                 '
 echo '+--------------------------------------+'
 echo "| it-dt   =>   Intrend Italy           |"
