@@ -37,8 +37,24 @@ there are two separate scripts, to start test using behat.yml file or config.yml
 to handle execution)
 
 - sh paco_start.sh
-    run automation using behat.yml file. 
+    run automation using behat.yml file and 'docker run' command
+    Contains rich debug infos, but uses no runner to handle concurrency
+    Suggestion: Use this script to run on Local envoirment
+    credentials.json and token.json file might be set up to the current position in local envoirment
+    see function getClient() in 'test/features/bootstrap/Utils.php'
 
 - sh paco_start_runner 
     run automation using config.yml file and using batch-all-stores.sh execution
+    credentials.json and token.json by default are set in the script using env variables
+    no debug infos available but uses runner to handle concurrency and fail timeouts
+    debug infos are written in pretty file under the run folder in
+    /data/maxmara_dd_test/tests/artifacts/runs
+    search the current run folder, ordered by date and time, browsers and feature executed
+    for example, view this .pretty file log
+    Suggestion: Use this script to run Test Plans on AWS server
+    RUNNER_GOOGLE_TOKEN="/data/maxmara_dd_test/tests/token.json"
+    RUNNER_GOOGLE_CREDENTIALS="/data/maxmara_dd_test/tests/credentials.json"
+    
+    see function getClient() in 'test/features/bootstrap/Utils.php'
+    
 
