@@ -19,7 +19,7 @@ echo "| it-dt   =>   Intrend Italy           |"
 echo "| gb-mm   =>   MaxMara United Kingdom  |"
 echo '+--------------------------------------+'
 echo '                                 '
-
+echo "WARNING!  the current /test/data/config.yml configuration will be overwritten"
 read selection
 
 brand=$(php Start.php -b "${selection}")

@@ -27,5 +27,7 @@ brand=$(php Start_runner.php -b "${selection}")
 echo running on ${brand}
 cd ../data || echo "Error, folder data not found"
 echo "Starting tests..."
-sudo ./batch-all-stores.sh
+export RUNNER_GOOGLE_TOKEN="/data/maxmara_dd_test/tests/token.json"
+export RUNNER_GOOGLE_CREDENTIALS="/data/maxmara_dd_test/tests/credentials.json"
+sudo -E ./batch-all-stores.sh
 echo "Tests ended."
