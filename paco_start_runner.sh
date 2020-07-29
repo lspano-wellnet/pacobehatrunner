@@ -29,5 +29,5 @@ cd ../data || echo "Error, folder data not found"
 echo "Starting tests..."
 export RUNNER_GOOGLE_TOKEN="/data/maxmara_dd_test/tests/token.json"
 export RUNNER_GOOGLE_CREDENTIALS="/data/maxmara_dd_test/tests/credentials.json"
-sudo -E ./batch-all-stores.sh
+sudo -E nohup ./batch-all-stores.sh &
 echo "Tests ended."
