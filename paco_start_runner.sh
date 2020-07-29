@@ -32,5 +32,7 @@ export RUNNER_GOOGLE_CREDENTIALS="/data/maxmara_dd_test/tests/credentials.json"
 sudo -E nohup ./batch-all-stores.sh &
 echo "check the following Google Sheet to check execution"
 echo "https://docs.google.com/spreadsheets/d/1tFtpxNy2TzKI2W53iQPBFEmSBOKDB_7yzPZw3LXvFlc"
-echo "to stop test see documentation here:"
+echo "also check on browserstack for possible timeouts"
+echo "https://automate.browserstack.com/dashboard/v2/"
+echo "to stop execution see documentation here:"
 echo "https://xcp-projects.atlassian.net/wiki/spaces/QA/pages/1921482801/PACO+Procedura+Automatica+di+Acquisto+COmpulsivo"
