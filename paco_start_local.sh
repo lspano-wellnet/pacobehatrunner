@@ -20,22 +20,12 @@ echo "| gb-mm   =>   MaxMara United Kingdom  |"
 echo '+--------------------------------------+'
 echo '                                 '
 echo "WARNING!  the current /test/data/config.yml configuration will be overwritten"
-
 read selection
 
-brand=$(php Start_runner.php -b "${selection}")
+brand=$(php Start.php -b "${selection}")
 echo running on ${brand}
-cd ../data || echo "Error, folder data not found"
-echo "Starting tests..."
-export RUNNER_GOOGLE_TOKEN="/data/maxmara_dd_test/tests/token.json"
-export RUNNER_GOOGLE_CREDENTIALS="/data/maxmara_dd_test/tests/credentials.json"
-sudo -E nohup ./batch-all-stores.sh &
-echo " "
-echo "Open the following Google Sheet to check execution"
-echo "   ->  https://docs.google.com/spreadsheets/d/1tFtpxNy2TzKI2W53iQPBFEmSBOKDB_7yzPZw3LXvFlc"
-echo "also check on browserstack for possible timeouts"
-echo "   -> https://automate.browserstack.com/dashboard/v2/"
-echo "to stop execution see documentation here:"
-echo "   -> https://xcp-projects.atlassian.net/wiki/spaces/QA/pages/1921482801/PACO+Procedura+Automatica+di+Acquisto+COmpulsivo"
-
-
+cd ..
+	## use this command to run on AWS
+docker run --rm -v "$PWD/behat.yml:/tests/behat.yml" -v "$PWD/features:/tests/features" -v "$PWD/artifacts:/tests/artifacts" -v "$PWD/vendor:/tests/vendor" -v "$PWD/credentials.json:/tests/credentials.json" -v "$PWD/token.json:/tests/token.json" wellnetimages/behat:2.0.1 /tests/bin/behat --format pretty features/features_${brand}/TSF050-utils/TSF050_FT002-order_placer.feature:4
+	## use this command to run locally
+## rm -rf artifacts/screenshots/*.png & docker run --rm --network tests_default -v "$PWD/behat.yml:/tests/behat.yml" -v "$PWD/features:/tests/features" -v "$PWD/artifacts:/tests/artifacts" -v "$PWD/vendor:/tests/vendor" -v "$PWD/credentials.json:/tests/credentials.json" -v "$PWD/token.json:/tests/token.json" wellnetimages/behat:2.0.0 /tests/bin/behat --format pretty features/features_${brand}/TSF050-utils/TSF050_FT002-order_placer.feature:4
