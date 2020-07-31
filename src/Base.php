@@ -36,6 +36,7 @@ class Base {
         file_put_contents('../behat.yml', $i);
     }
 
+
     public function printConfigFile($brand, $country) {
         $today = $this->getCurrentDateItaly();
         $featureBrandPath = $this->featureBrandPath($brand);
