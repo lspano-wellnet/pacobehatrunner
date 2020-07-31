@@ -7,6 +7,8 @@ class Base {
     public function printBehatYml($brand, $country) {
         $featureBrandPath = $this->featureBrandPath($brand);
         $countryMapped = $this->getCountry($country);
+        // String containing Country_Brand_Envoirment string
+        $countryBrandEnvString = $countryMapped ."_" . $featureBrandPath[1] . "_" . $this->getBrowserstackInfo('default_env');
         $i = "default:
   extensions:
     Vanare\BehatCucumberJsonFormatter\Extension:
@@ -18,7 +20,7 @@ class Base {
           browser_stack:
             username: \"" . $this->getBrowserstackInfo('username') . "\"
             access_key: \"" . $this->getBrowserstackInfo('access_key') . "\"
-            capabilities: {\"browser\" :\"Chrome\", \"browserVersion\": \"80\", \"os\": \"windows\", \"os_version\": \"10\", \"resolution\": \"1920x1080\", \"acceptSslCerts\": true, \"browserstack-debug\": true, \"project\": \"maxmara_automation\", \"build\": \"" . $this->getBrowserstackInfo('default_env') . "\"}
+            capabilities: {\"browser\" :\"Chrome\", \"browserVersion\": \"80\", \"os\": \"windows\", \"os_version\": \"10\", \"resolution\": \"1920x1080\", \"acceptSslCerts\": true, \"browserstack-debug\": true, \"project\": \"maxmara_automation\", \"build\": \"" . $this->getCurrentDateItaly() . " " . $countryBrandEnvString . "\"} 
         local:
           selenium2:
           
@@ -30,7 +32,7 @@ class Base {
           paths: [ %paths.base%/features/features_" . $featureBrandPath[0] . "/TSF050-utils ]
           contexts:
             - " . $featureBrandPath[1] . "TSF002Context:
-                - " . $countryMapped ."_" . $featureBrandPath[1] . "_" . $this->getBrowserstackInfo('default_env');
+                - " . $countryBrandEnvString;
         file_put_contents('../behat.yml', $i);
     }
 
