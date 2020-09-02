@@ -87,11 +87,14 @@ plans:
             case "pb":
                 return ["pennyblack", "PennyBlack"];
                 break;
-            case "sp" || "spx":
+            case "sp":
                 return ["sportmax", "SportMax"];
                 break;
             case "ma":
                 return ["marella", "Marella"];
+                break;
+            case "fm":
+                return ["fashionmarket", "FashionMarket"];
                 break;
         }
     }
