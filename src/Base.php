@@ -96,6 +96,9 @@ plans:
             case "fm":
                 return ["fashionmarket", "FashionMarket"];
                 break;
+            case "we":
+                return ["weekend", "Weekend"];
+                break;
         }
     }
 
