@@ -114,6 +114,6 @@ plans:
 
     public function getCurrentDateItaly() {
         date_default_timezone_set("Europe/Rome");
-        return strftime("%d/%m/%y");
+        return strftime("%Y/%m/%d");
     }
 }
