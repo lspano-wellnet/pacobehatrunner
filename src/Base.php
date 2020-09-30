@@ -88,7 +88,7 @@ plans:
                 return ["pennyblack", "PennyBlack"];
                 break;
             case "sp":
-                return ["sportmax", "SportMax"];
+                return ["sportmax", "Sportmax"];
                 break;
             case "ma":
                 return ["marella", "Marella"];
