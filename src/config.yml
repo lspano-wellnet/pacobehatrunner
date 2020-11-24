@@ -1,5 +1,5 @@
 browserstack:
-  username: "qasupport4"
-  access_key: "EKPbquBzpXZcfqMjyVYu"
+  username: "wellnetsrl1"
+  access_key: "QNyizzioNqWWQWcxV66p"
   build_name: "PAACO"
-  default_env: "UAT"
+  default_env: ""

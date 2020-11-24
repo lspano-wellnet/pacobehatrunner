@@ -8,7 +8,7 @@ class Base {
         $featureBrandPath = $this->featureBrandPath($brand);
         $countryMapped = $this->getCountry($country);
         // String containing Country_Brand_Envoirment string
-        $countryBrandEnvString = $countryMapped ."_" . $featureBrandPath[1] . "_" . $this->getBrowserstackInfo('default_env');
+        $countryBrandEnvString = $countryMapped ."_" . $featureBrandPath[1];
         $i = "default:
   extensions:
     Vanare\BehatCucumberJsonFormatter\Extension:
@@ -31,7 +31,7 @@ class Base {
         TSF050:
           paths: [ %paths.base%/features/features_" . $featureBrandPath[0] . "/TSF050-utils ]
           contexts:
-            - " . $featureBrandPath[1] . "TSF002Context:
+            - PacoContext:
                 - " . $countryBrandEnvString;
         file_put_contents('../behat.yml', $i);
     }
@@ -75,29 +75,11 @@ plans:
 
     public function featureBrandPath($brand) {
         switch ($brand){
-            case "mm":
-                return ["maxmara", "Maxmara"];
+            case "ben":
+                return ["benetton", "Benetton"];
                 break;
-            case "dt":
-                return ["intrend", "Intrend"];
-                break;
-            case "mr":
-                return ["marinarinaldi", "MarinaRinaldi"];
-                break;
-            case "pb":
-                return ["pennyblack", "PennyBlack"];
-                break;
-            case "sp":
-                return ["sportmax", "Sportmax"];
-                break;
-            case "ma":
-                return ["marella", "Marella"];
-                break;
-            case "fm":
-                return ["fashionmarket", "FashionMarket"];
-                break;
-            case "we":
-                return ["weekend", "Weekend"];
+            case "sis":
+                return ["sisley", "Sisley"];
                 break;
         }
     }
