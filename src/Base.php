@@ -20,7 +20,7 @@ class Base {
           browser_stack:
             username: \"" . $this->getBrowserstackInfo('username') . "\"
             access_key: \"" . $this->getBrowserstackInfo('access_key') . "\"
-            capabilities: {\"browser\" :\"Chrome\", \"browserVersion\": \"86\", \"os\": \"windows\", \"os_version\": \"10\", \"resolution\": \"1920x1080\", \"acceptSslCerts\": true, \"browserstack-debug\": true, \"project\": \"maxmara_automation\", \"build\": \"" . $this->getCurrentDateItaly() . " " . $countryBrandEnvString . "\"} 
+            capabilities: {\"browser\" :\"Chrome\", \"os\": \"OS X\", \"os_version\": \"Catalina\", \"resolution\": \"1920x1080\", \"acceptSslCerts\": true, \"project\": \"maxmara_automation\", \"build\": \"" . $this->getCurrentDateItaly() . " " . $countryBrandEnvString . "\"}
         local:
           selenium2:
           
