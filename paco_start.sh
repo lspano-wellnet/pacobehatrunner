@@ -1,6 +1,6 @@
 if [ -z "$1" ] || [ -z "$2" ] || [ -z "$3" ]; then
-  echo 'ERROR: one or more variables are undefined'
-  echo 'expected input like "it dt uat"'
+  echo 'ERROR: one or more MANDATORY variables are undefined'
+  echo 'expected input like [country] [brand] [environment]'
   echo "input Examples:"
   echo '                                 '
   echo '+----------------------------------------------+'
@@ -10,7 +10,17 @@ if [ -z "$1" ] || [ -z "$2" ] || [ -z "$3" ]; then
   exit 1
 fi
 
-brand=$(php Start.php -b "${1}-${2}-${3}")
+googleSheet=$(echo ${4}| cut -d'/' -f 6)
+echo ${googleSheet}
+
+if [ -z "$4" ]; then
+  googleSheet="1tFtpxNy2TzKI2W53iQPBFEmSBOKDB_7yzPZw3LXvFlc"
+  echo 'OPTIONAL parameter for google sheet not specified'
+  echo 'using default Paco Orders Google Sheet'
+  echo 'https://docs.google.com/spreadsheets/d/1tFtpxNy2TzKI2W53iQPBFEmSBOKDB_7yzPZw3LXvFlc'
+fi
+
+brand=$(php Start.php -b "${1};${2};${3};${googleSheet}")
 echo running on ${brand}
 cd ..
 	## use this command to run on AWS

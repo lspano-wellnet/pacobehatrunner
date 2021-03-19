@@ -4,12 +4,14 @@ use Symfony\Component\Yaml\Exception\ParseException;
 
 class Base {
 
-    public function printBehatYml($brand, $country) {
+    public function printBehatYml($brand, $country, $googleSheedId) {
         $featureBrandPath = $this->featureBrandPath($brand);
         $countryMapped = $this->getCountry($country);
         // String containing Country_Brand_Envoirment string
         $countryBrandEnvString = $countryMapped ."_" . $featureBrandPath[1] . "_" . $this->getBrowserstackInfo('default_env');
-        $i = "default:
+        $a = 'google_id: "' . $googleSheedId . '"';
+        $i = "
+default:
   extensions:
     Vanare\BehatCucumberJsonFormatter\Extension:
       outputDir: %paths.base%/artifacts
@@ -20,10 +22,10 @@ class Base {
           browser_stack:
             username: \"" . $this->getBrowserstackInfo('username') . "\"
             access_key: \"" . $this->getBrowserstackInfo('access_key') . "\"
-            capabilities: {\"browser\" :\"Chrome\", \"os\": \"OS X\", \"os_version\": \"Catalina\", \"resolution\": \"1920x1080\", \"acceptSslCerts\": true, \"project\": \"maxmara_automation\", \"build\": \"" . $this->getCurrentDateItaly() . " " . $countryBrandEnvString . "\"}
+            capabilities: {\"browser\" :\"Chrome\", \"os\": \"OS X\", \"os_version\": \"Catalina\", \"resolution\": \"1920x1080\", \"acceptSslCerts\": true, \"project\": \"PAACO\", \"build\": \"" . $this->getCurrentDateItaly() . " " . $countryBrandEnvString . "\"}
         local:
           selenium2:
-          
+    
             wd_host: 'http://phantomjs:4444/wd/hub'
             capabilities: { \"browser\": \"phantomjs\", \"version\" : \"xx.xx\"}
 
@@ -33,7 +35,7 @@ class Base {
           contexts:
             - " . $featureBrandPath[1] . "TSF002Context:
                 - " . $countryBrandEnvString;
-        file_put_contents('../behat.yml', $i);
+        file_put_contents('../behat.yml', $a.$i);
     }
 
 
