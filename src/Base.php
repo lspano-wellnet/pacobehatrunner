@@ -101,6 +101,12 @@ plans:
             case "we":
                 return ["weekend", "Weekend"];
                 break;
+            case "ib":
+                return ["iblues", "iBlues"];
+                break;
+            case "mc":
+                return ["maxandco", "MaxAndCo"];
+                break;
         }
     }
 
